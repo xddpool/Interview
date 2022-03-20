@@ -2,7 +2,7 @@ package com.xiaoxiong.al;
 
 import java.util.Scanner;
 
-public class OdOne {
+public class Od01 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int count = 0;

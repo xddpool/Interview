@@ -3,7 +3,7 @@ package com.xiaoxiong.al;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class OdTwo {
+public class Od02 {
     public static void main(String[] args) {
 //        给定两个整数数组
         //array1 array2  数组元素按升序排列
