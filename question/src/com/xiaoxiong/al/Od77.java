@@ -53,27 +53,32 @@ public class Od77 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<Integer> m = Arrays.stream(in.nextLine().split(","))
-                .map(s -> Integer.parseInt(s))
-                .sorted()
-                .collect(Collectors.toList());
-        int r = Integer.parseInt(in.nextLine());
+
+        // 接收商品价格
+        String[] split = in.nextLine().split(",");
+        List<Integer> collect = Arrays.stream(split).map(Integer::parseInt).sorted().collect(Collectors.toList());
+        // 接收资金限制
+        String s = in.nextLine();
+        int cost = Integer.parseInt(s);
         in.close();
 
         int max = -1;
-        for (int i = 0; i < m.size() - 2; i++) {
-            for (int j = 0; j < m.size() - 1; j++) {
-                for (int k = 0; k < m.size(); k++) {
-                    if (i != j && j != k && i != k) {
-                        int sum = m.get(i) + m.get(j) + m.get(k);
-                        if (sum <= r && sum > max) {
-                            max = sum;
+        //在 collect 里面挑选 3 个 数字最大不超过 cost
+        for (int i = 0; i < collect.size(); i++) {
+            for (int i1 = 1; i1 < collect.size(); i1++) {
+                for (int i2 = 2; i2 < collect.size(); i2++) {
+                    if (i != i1 && i != i2 && i1 != i2) {
+                        int price = collect.get(i) + collect.get(i1) + collect.get(i2);
+                        if (price <= cost && price > max) {
+                            max = price;
                         }
                     }
                 }
             }
-        }
 
+        }
         System.out.println(max);
     }
+
+
 }

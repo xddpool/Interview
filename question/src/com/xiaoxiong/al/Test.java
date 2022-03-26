@@ -13,7 +13,7 @@ public class Test {
 
         HashMap<Object, Object> map = new HashMap<>();
 
-        map.entrySet().stream()
+        map.entrySet().stream();
 
         System.out.println(Arrays.toString(split));
     }
