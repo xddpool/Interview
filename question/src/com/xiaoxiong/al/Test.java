@@ -1,21 +1,38 @@
 package com.xiaoxiong.al;
 
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Test {
     public static void main(String[] args) {
+        LinkedList<Character> characters = new LinkedList<>();
 
-        String s = "www.baidu.com";
+        characters.add('m');
+        characters.add('M');
+        characters.add('b');
+        characters.add('c');
+        characters.add('c');
+        characters.add('b');
+        characters.add('c');
 
-        String[] split = s.split("\\.");
+        int eliminate = eliminate(characters);
+        System.out.println(eliminate);
+    }
 
-        HashMap<Object, Object> map = new HashMap<>();
+    public static int eliminate(LinkedList<Character> list) {
 
-        map.entrySet().stream();
+        for (int i = 0; i < list.size() - 1; i++) {
+            Character a = list.get(i);
+            Character b = list.get(i + 1);
+            if (a.equals(b)) {
+                list.remove(i);
+                list.remove(i);
+                i--;
+            }
+        }
 
-        System.out.println(Arrays.toString(split));
+        int i = list.size();
+        return i;
     }
 }
 
